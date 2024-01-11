@@ -6,7 +6,7 @@ It is not complete if the right user experience is not provided. At least, you s
 
 That's the primary purpose of building this app. It consumes data from a RESTful API hosted on AWS App Runner and displays it on the home page. I can introduce a lot of cool ideas to this web app, but should I?
 
-## Architecture
+## What's your favourite coffee?
 ![Alt text](/public/coffee-run-ui.png?raw=true "Coffee Run UI")
 
 ## Learn More
