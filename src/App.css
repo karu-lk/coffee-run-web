@@ -32,7 +32,28 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.header {
+  font-size: x-large;
+  background-color: rgb(17, 0, 112);
+  height: 80px;
+}
+
+.header p{
+  font-weight: bold;
+  padding-top: 20px;
+  color: azure;
+}
+
+.coffee-table {
+  margin-top: 60px;
+}
+
+.coffee-table td {
+  text-align: left;
 }

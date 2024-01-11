@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with the Coffee Run React web app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![alt text]('./public/coffee-run-ui.png)
 
 ## Available Scripts
 

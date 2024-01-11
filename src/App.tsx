@@ -1,24 +1,65 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { getCoffeeTypes } from './App.service';
+import Table from 'react-bootstrap/Table';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  interface ICoffeeTypes {
+    title: string;
+    description: string;
+    ingredients: string[];
+    image: string;
+  }
+
+  const [coffeeTypes, setCoffeeTypes] = useState<ICoffeeTypes[]>([]);
+
+  useEffect(() => {
+    getCoffeeTypesFromService();
+  }, []);
+
+
+  const getCoffeeTypesFromService = async () => {
+    const coffeeTypes = await getCoffeeTypes();
+    setCoffeeTypes(coffeeTypes);
+    console.log('###', coffeeTypes);
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='header'>
+        <p>COFFEE RUN</p>
+      </div>
+      <div className='coffee-types'>
+        <Table striped bordered hover className='coffee-table'>
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Ingredients</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              coffeeTypes.map((c) => {
+                return (
+                  <tr>
+                    <td>
+                      <img style={{ width: 40, height: 40 }} src={c.image}></img>
+                    </td>
+                    <td>{c.title}</td>
+                    <td>{c.description && c.description.substring(0, 100)}</td>
+                    <td>{c.ingredients && c.ingredients.join(" | ")}</td>
+                  </tr>
+                )
+              })
+            }
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 }
