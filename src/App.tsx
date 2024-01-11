@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { getCoffeeTypes } from './App.service';
 import Table from 'react-bootstrap/Table';
@@ -23,7 +22,6 @@ function App() {
   const getCoffeeTypesFromService = async () => {
     const coffeeTypes = await getCoffeeTypes();
     setCoffeeTypes(coffeeTypes);
-    console.log('###', coffeeTypes);
   }
 
 
@@ -44,11 +42,11 @@ function App() {
           </thead>
           <tbody>
             {
-              coffeeTypes.map((c) => {
+              coffeeTypes.map((c, index) => {
                 return (
-                  <tr>
+                  <tr key={index}>
                     <td>
-                      <img style={{ width: 40, height: 40 }} src={c.image}></img>
+                      <img style={{ width: 40, height: 40 }} src={c.image} alt=''></img>
                     </td>
                     <td>{c.title}</td>
                     <td>{c.description && c.description.substring(0, 100)}</td>

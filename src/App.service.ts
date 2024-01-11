@@ -9,8 +9,6 @@ export const baseUrl = () => {
 
 export const getCoffeeTypes=async()=>{
     try {
-        console.log('!!', baseUrl());
-        
         const res = await axios.get(`${baseUrl()}/coffee-types`);
         return res.data.data;
     } catch (err) {
